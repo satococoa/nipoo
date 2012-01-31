@@ -2,6 +2,6 @@
   %td= report.date
   %td= report.user.name
   %td= report.body
-  %td= link_to 'Show', report
-  %td= link_to 'Edit', edit_report_path(report)
-  %td= link_to 'Destroy', report, :confirm => 'Are you sure?', :method => :delete
+  %td= link_to 'Show', report, :class => 'btn'
+  %td= link_to 'Edit', edit_report_path(report), :class => 'btn'
+  %td= link_to 'Destroy', report, :class => 'btn', :confirm => 'Are you sure?', :method => :delete

@@ -3,29 +3,43 @@
 <head>
   <title>Nipoo</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <% if flash[:notice].present? %>
-    <div id="notice">
-      <%= flash[:notice] %>
+  <div class="topbar" data-scrollspy="scrollspy" >
+    <div class="topbar-inner">
+      <div class="container">
+        <a class="brand" href="#">Bootstrap</a>
+        <ul class="nav">
+          <li class="active"><a href="#overview">Overview</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
     </div>
-  <% end %>
+  </div>
+  <div class="container">
 
-  <% if flash[:alert].present? %>
-    <div id="alert">
-      <%= flash[:alert] %>
-    </div>
-  <% end %>
+    <% if flash[:notice].present? %>
+      <div id="notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
 
-  <% if logged_in? %>
-    <p>Hello, <%= current_user.name %>! <%= link_to 'Logout', :logout %></p>
-    <%= yield %>
-  <% else %>
-    <%= link_to 'Login', :login %>
-  <% end %>
+    <% if flash[:alert].present? %>
+      <div id="alert">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
 
+    <% if logged_in? %>
+      <p>Hello, <%= current_user.name %>! <%= link_to 'Logout', :logout %></p>
+      <%= yield %>
+    <% else %>
+      <%= link_to 'Login', :login %>
+    <% end %>
+
+  </div>
 </body>
 </html>
