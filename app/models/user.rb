@@ -9,4 +9,12 @@ class User < ActiveRecord::Base
     )
     user
   end
+  def member?(org)
+    begin
+      Octokit.organization_members(org).map(&:id).include? uid.to_i
+    rescue => e
+      Rails.logger.error "#{e.class}: #{e.message}"
+      false
+    end
+  end
 end
