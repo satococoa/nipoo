@@ -1,7 +1,7 @@
 Nipoo::Application.routes.draw do
-  get "sessions/create"
-
-  get "sessions/destroy"
+  match '/auth/github/callback' => 'sessions#create', :as => :callback
+  match '/logout' => 'sessions#destroy', :as => :logout
+  match '/login' => redirect('/auth/github'), :as => :login
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
