@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :reports
+  
   def self.find_or_create_by_auth_hash(auth)
     user = User.find_or_create_by_uid(auth['uid'])
     user.update_attributes(

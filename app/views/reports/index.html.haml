@@ -12,7 +12,7 @@
   - @reports.each do |report|
     %tr
       %td= report.date
-      %td= report.user_id
+      %td= report.user.name
       %td= report.body
       %td= link_to 'Show', report
       %td= link_to 'Edit', edit_report_path(report)

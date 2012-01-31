@@ -1,11 +1,9 @@
-%p#notice= notice
-
 %p
   %b Date:
   = @report.date
 %p
   %b User:
-  = @report.user_id
+  = @report.user.name
 %p
   %b Body:
   = @report.body
