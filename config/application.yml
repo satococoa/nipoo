@@ -1,0 +1,16 @@
+defaults: &defaults
+  github:
+    key: 'cb9176883591da3759fd'
+    secret: 'c19270b8e7c042c1def000d46e2ccf895c2f5a8e'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  github:
+    key: <%= ENV['GITHUB_KEY'] %>
+    secret: <%= ENV['GITHUB_SECRET'] %>
