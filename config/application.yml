@@ -2,6 +2,7 @@ defaults: &defaults
   github:
     key: 'cb9176883591da3759fd'
     secret: 'c19270b8e7c042c1def000d46e2ccf895c2f5a8e'
+    organization: 'prog4designer'
 
 development:
   <<: *defaults
@@ -14,3 +15,4 @@ production:
   github:
     key: <%= ENV['GITHUB_KEY'] %>
     secret: <%= ENV['GITHUB_SECRET'] %>
+    organization: <%= ENV['GITHUB_ORG'] %>

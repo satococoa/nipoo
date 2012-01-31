@@ -8,8 +8,20 @@
 </head>
 <body>
 
+  <% if flash[:notice].present? %>
+    <div id="notice">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if flash[:alert].present? %>
+    <div id="alert">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
   <% if logged_in? %>
-    <p>Hello, <%= current_user.name %>!</p>
+    <p>Hello, <%= current_user.name %>! <%= link_to 'Logout', :logout %></p>
     <%= yield %>
   <% else %>
     <%= link_to 'Login', :login %>

@@ -1,15 +1,17 @@
 class SessionsController < ApplicationController
   def create
     user = User.find_or_create_by_auth_hash(auth_hash)
-    if user.present?
+    if user.present? && user.member?(Settings.github.organization)
       session[:user_id] = user.id
+      redirect_to :root, :notice => 'Logged in!'
+    else
+      redirect_to :root, :alert => 'Login failed!'
     end
-    redirect_to :root
   end
 
   def destroy
     session.clear
-    redirect_to :root
+    redirect_to :root, :notice => 'Logged out!'
   end
 
   private
