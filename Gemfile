@@ -25,8 +25,10 @@ gem 'haml-rails'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'octokit'
+gem 'settingslogic'
 
 group :development, :test do
+  gem 'tapp'
   gem 'rspec-rails'
   gem 'fabrication'
 end
