@@ -8,7 +8,12 @@
 </head>
 <body>
 
-<%= yield %>
+  <% if logged_in? %>
+    <p>Hello, <%= current_user.name %>!</p>
+    <%= yield %>
+  <% else %>
+    <%= link_to 'Login', :login %>
+  <% end %>
 
 </body>
 </html>
