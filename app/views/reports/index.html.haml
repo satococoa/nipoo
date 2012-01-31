@@ -1,0 +1,23 @@
+%h1 Listing reports
+
+%table
+  %tr
+    %th Date
+    %th User
+    %th Body
+    %th
+    %th
+    %th
+
+  - @reports.each do |report|
+    %tr
+      %td= report.date
+      %td= report.user_id
+      %td= report.body
+      %td= link_to 'Show', report
+      %td= link_to 'Edit', edit_report_path(report)
+      %td= link_to 'Destroy', report, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Report', new_report_path
