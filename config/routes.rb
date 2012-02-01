@@ -1,5 +1,7 @@
 Nipoo::Application.routes.draw do
-  resources :reports
+  resources :reports do
+    resources :comments, :only => [:create, :update, :destroy]
+  end
 
   match '/auth/github/callback' => 'sessions#create', :as => :callback
   match '/logout' => 'sessions#destroy', :as => :logout
