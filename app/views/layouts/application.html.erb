@@ -10,9 +10,9 @@
   <div class="navbar">
     <div class="navbar-inner">
       <div class="container">
-        <a class="brand" href="/">Nipoo!</a>
+        <%= link_to 'Nipoo!', :root, :class => 'brand' %>
         <ul class="nav">
-          <li <%= "class=active" if current_page?(:root) || current_page?(:reports) %>>
+          <li <%= "class=active" if current_page?(:reports) %>>
             <%= link_to 'Reports', :reports %>
           </li>
           <li <%= "class=active" if current_page?(:new_report) %>>
@@ -33,22 +33,18 @@
   <div class="container">
 
     <% if flash[:notice].present? %>
-      <div id="notice">
+      <div class="alert alert-success">
         <%= flash[:notice] %>
       </div>
     <% end %>
 
     <% if flash[:alert].present? %>
-      <div id="alert">
+      <div class="alert alert-error">
         <%= flash[:alert] %>
       </div>
     <% end %>
 
-    <% if logged_in? %>
-      <%= yield %>
-    <% else %>
-      <p><%= link_to 'Login', :login, :class => 'btn' %></p>
-    <% end %>
+    <%= yield %>
 
   </div>
 </body>

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   private
   def require_login
-    redirect_to :login unless logged_in?
+    redirect_to :root unless logged_in?
   end
 
   def logged_in?
