@@ -1,10 +1,13 @@
-%h1 Nipoo!
-%p 某弊社専用日報ツールです。一見さんお断り。
-- if logged_in?
-  %p= "Hello, #{current_user.name}!!"
-- else
-  %p
-    =link_to(:login, :class => 'btn') do
-      <i class="icon-user"></i>
-      Login
-    
+.row-fluid
+  %section
+    .row-fluid
+      .span12
+        %p 某弊社専用日報ツールです。一見さんお断り。
+        - if logged_in?
+          %p= "Hello, #{current_user.name}!!"
+        - else
+          %p
+            =link_to(:login, :class => 'btn') do
+              %i.icon-user
+              Login
+        
