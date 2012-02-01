@@ -1,4 +1,6 @@
 class ReportsController < ApplicationController
+  before_filter :require_login
+
   # GET /reports
   # GET /reports.json
   def index
