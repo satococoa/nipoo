@@ -3,22 +3,33 @@
 <head>
   <title>Nipoo</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag    "http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="topbar" data-scrollspy="scrollspy" >
-    <div class="topbar-inner">
+  <div class="navbar">
+    <div class="navbar-inner">
       <div class="container">
-        <a class="brand" href="#">Bootstrap</a>
+        <a class="brand" href="/">Nipoo!</a>
         <ul class="nav">
-          <li class="active"><a href="#overview">Overview</a></li>
-          <li><a href="#about">About</a></li>
+          <li <%= "class=active" if current_page?(:root) || current_page?(:reports) %>>
+            <%= link_to 'Reports', :reports %>
+          </li>
+          <li <%= "class=active" if current_page?(:new_report) %>>
+            <%= link_to 'New Report', :new_report %>
+          </li>
+        </ul>
+        <ul class="nav pull-right">
+          <% if logged_in? %>
+            <li><%= link_to 'Logout', :logout %></li>
+          <% else %>
+            <li><%= link_to 'Login', :login %></li>
+          <% end %>
         </ul>
       </div>
     </div>
   </div>
+
   <div class="container">
 
     <% if flash[:notice].present? %>
@@ -34,10 +45,9 @@
     <% end %>
 
     <% if logged_in? %>
-      <p>Hello, <%= current_user.name %>! <%= link_to 'Logout', :logout %></p>
       <%= yield %>
     <% else %>
-      <%= link_to 'Login', :login %>
+      <p><%= link_to 'Login', :login, :class => 'btn' %></p>
     <% end %>
 
   </div>
