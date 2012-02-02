@@ -4,7 +4,16 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.all
+    if params[:date].present?
+      begin
+        @date = Date.parse(params[:date])
+        @reports = Report.date(@date).all
+      rescue
+        @reports = Report.yesterday.all
+      end
+    else
+      @reports = Report.yesterday.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

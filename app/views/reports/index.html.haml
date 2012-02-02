@@ -1,3 +1,8 @@
-%h1 Listing reports
+%h1
+  Listing reports
+  %small=@date.presence || Date.yesterday
 
-=render @reports
+- if @reports.empty?
+  %p Not yet
+- else
+  = render @reports
