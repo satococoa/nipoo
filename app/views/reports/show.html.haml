@@ -13,3 +13,24 @@
     - if @report.user == current_user
       = link_to 'Edit', edit_report_path(@report), :class => 'btn'
     = link_to 'Back', reports_path, :class => 'btn'
+
+%section
+  .page-header
+    %h1 Comments
+  .row-fluid
+    .span6
+      %section
+        - if @report.comments.present?
+          %ul
+          - @report.comments do |comment|
+            %li=simple_format comment.body
+        - else
+          %p まだコメントはありません
+    .span6
+      %h1 New Comment
+      = form_for [@report, @report.comments.build] do |f|
+        .field
+          = f.label :body
+          = f.text_area :body, :rows => 20, :cols => 30, :class => 'span12'
+        .actions.form-actions
+          = f.submit 'Save', :class => 'btn btn-primary'
