@@ -1,0 +1,13 @@
+%section
+  %h2
+    = image_tag(comment.user.icon, :width => 12, :height => 12)
+    = comment.user.name
+    %small= "(#{comment.user.nickname})"
+  %p=simple_format comment.body
+  %p
+    %small
+      %i.icon-time
+      = comment.created_at.in_time_zone('Tokyo').strftime('%Y-%m-%d %H:%M')
+  .btn-group
+    - if comment.user == current_user
+      = link_to 'Destroy', [comment.report, comment], :class => 'btn', :confirm => 'Are you sure?', :method => :delete

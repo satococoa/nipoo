@@ -1,16 +1,20 @@
 %section
-  .page-header
-    %h1
-      = image_tag(report.user.icon, :width => 26, :height => 26)
-      = report.user.name
-      %small= "(#{report.user.nickname})"
-  %p= simple_format report.body
-  %p
-    %small
-      %i.icon-time
-      = report.created_at.in_time_zone('Tokyo').strftime('%Y-%m-%d %H:%M')
-  .btn-group
-    = link_to 'Show', report, :class => 'btn'
-    - if report.user == current_user
-      = link_to 'Edit', edit_report_path(report), :class => 'btn'
-      = link_to 'Destroy', report, :class => 'btn', :confirm => 'Are you sure?', :method => :delete
+  .row-fluid
+    .span8
+      .page-header
+        %h1
+          = image_tag(report.user.icon, :width => 26, :height => 26)
+          = report.user.name
+          %small= "(#{report.user.nickname})"
+      %p= simple_format report.body
+      %p
+        %small
+          %i.icon-time
+          = report.created_at.in_time_zone('Tokyo').strftime('%Y-%m-%d %H:%M')
+      .btn-group
+        = link_to 'Show', report, :class => 'btn'
+        - if report.user == current_user
+          = link_to 'Edit', edit_report_path(report), :class => 'btn'
+          = link_to 'Destroy', report, :class => 'btn', :confirm => 'Are you sure?', :method => :delete
+    .span4
+      = render report.comments
