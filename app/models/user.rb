@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :reports
   
   def self.find_or_create_by_auth_hash(auth)
-    user = User.find_or_create_by_uid(auth['uid'])
+    user = User.find_or_create_by_uid(auth['uid'].to_s)
     user.update_attributes(
       nickname: auth['info']['nickname'],
       name: auth['info']['name'],
