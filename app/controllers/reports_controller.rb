@@ -47,6 +47,10 @@ class ReportsController < ApplicationController
   # GET /reports/new.json
   def new
     @report = current_user.reports.new
+    if params[:copy_mode].present?
+      latest_report = current_user.reports.order('date DESC').limit(1).first
+      @report.body = latest_report.body
+    end
 
     respond_to do |format|
       format.html # new.html.erb
