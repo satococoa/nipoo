@@ -8,12 +8,12 @@ class ReportsController < ApplicationController
       begin
         @date = Date.parse(params[:date])
         @reports = Report.date(@date).all
-      rescue
-        @reports = Report.yesterday.all
+      rescue => e
+        Rails.logger.debug [e.class, e.message].join(' ')
       end
-    else
-      @reports = Report.yesterday.all
     end
+
+    @reports ||= Report.latest.all
 
     respond_to do |format|
       format.html # index.html.erb

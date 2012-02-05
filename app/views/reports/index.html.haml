@@ -1,6 +1,6 @@
 %h1
   Listing reports
-  %small=@date.presence || Date.yesterday
+  %small=@date.presence || Report.latest_date
 
 - if @reports.empty?
   %p Not yet
