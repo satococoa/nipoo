@@ -16,5 +16,5 @@
     $ rails server
 
 
-herokuで動かすときは`heroku add:config GITHUB_KEY=xxxx`のようにして設定して下さい。
+herokuで動かすときは(別ブランチを切るなどして)`config/application.yml`をリポジトリに追加し、`heroku add:config GITHUB_KEY=xxxx`のようにして設定して下さい。
 
