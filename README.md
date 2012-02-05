@@ -1,22 +1,15 @@
 # Nipoo!について
 
-某弊社向けに作られたシンプルな日報ツールです。  
-残念ながら、もしかすると使われないかもしれませんが。
+某弊社向けに作られたシンプルな日報ツールです。
 
 
 # 動かし方
 
 1. https://github.com/account/applications からapplicationを登録して下さい。
-2. `config/application.yml`を編集して下さい。僕のデータ直書きですみません。  
+2. `config/application.yml.sample`を`config/application.yml`にコピーし、編集して下さい。
+3. あとは普通のrailsアプリです。
 
-
-    key: Client ID
-    secret: Client Secret
-    organization: Organization名
-
-
-3. 普通のrailsアプリです。以下のように起動。
-
+以下のように起動してください。
 
     $ bundle install --without production --path vendor/bundle
     $ rake db:setup
