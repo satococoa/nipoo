@@ -1,5 +1,5 @@
 Fabricator(:comment) do
   report!
   user!
-  body "MyText"
+  body "Comment body"
 end

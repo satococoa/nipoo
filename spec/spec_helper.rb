@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'capybara/rspec'
 require 'capybara/rails'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -33,4 +34,27 @@ RSpec.configure do |config|
 
   config.filter_run :focus => true
   config.run_all_when_everything_filtered = true
+
+  def login_as(user)
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.add_mock(:github, {
+      :uid => user.uid,
+      :info => {
+        :nickname => user.nickname,
+        :name => user.name,
+      },
+      :extra => {
+        :raw_info => {
+          :avatar_url => user.icon
+        }
+      },
+      :credentials => {
+        :toen => user.token
+      }
+    })
+    visit '/login'
+  end
+  def logout
+    visit '/logout'
+  end
 end

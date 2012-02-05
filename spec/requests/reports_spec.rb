@@ -1,11 +1,31 @@
+# coding: utf-8
 require 'spec_helper'
 
 describe "Reports" do
-  describe "GET /reports" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get reports_path
-      response.status.should be(200)
+  context 'ログインしていないとき' do
+    describe '/' do
+      it 'ログイン画面' do
+        visit '/'
+        page.body.should match(/Login/)
+      end
+    end
+  end
+  context 'ログイン後の時' do
+    let(:user) { Fabricate :user }
+    before do
+      login_as user
+    end
+    it '日報一覧画面' do
+      visit '/'
+      page.body.should match(/Listing reports/)
+    end
+    let!(:report) { Fabricate :report, :user => user }
+    before do
+      login_as user
+    end
+    it '日報が表示される' do
+      visit '/'
+      page.body.should match(/#{report.body}/)
     end
   end
 end

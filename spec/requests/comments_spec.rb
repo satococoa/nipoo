@@ -1,11 +1,15 @@
+# coding: utf-8
 require 'spec_helper'
 
 describe "Comments" do
-  describe "GET /comments" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get comments_path
-      response.status.should be(200)
-    end
+  let(:user) { Fabricate :user }
+  let!(:report) { Fabricate :report, :user => user }
+  let!(:comment) { Fabricate :comment, :user => user, :report => report }
+  before do
+    login_as user
+  end
+  it 'コメントが表示される' do
+    visit '/'
+    page.body.should match(/#{comment.body}/)
   end
 end
