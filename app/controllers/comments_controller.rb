@@ -8,10 +8,10 @@ class CommentsController < ApplicationController
     @comment = @report.comments.build(params[:comment].merge(user_id: current_user.id))
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @report, notice: 'Comment was successfully created.' }
+        format.html { redirect_to :back, notice: 'Comment was successfully created.' }
         format.json { render json: @comment, status: :created, location: @comment }
       else
-        format.html { redirect_to @report, alert: 'Comment was not created.'  }
+        format.html { redirect_to :back, alert: 'Comment was not created.'  }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to @report }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end
