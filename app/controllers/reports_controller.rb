@@ -18,13 +18,13 @@ class ReportsController < ApplicationController
     if params[:date].present?
       begin
         @date = Date.parse(params[:date])
-        @reports = Report.date(@date).all
       rescue => e
         Rails.logger.debug [e.class, e.message].join(' ')
       end
     end
 
-    @reports ||= Report.latest.all
+    @date ||= Report.latest_date
+    @reports = Report.date(@date).all
 
     respond_to do |format|
       format.html # index.html.erb

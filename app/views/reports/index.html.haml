@@ -1,6 +1,12 @@
+.pagination
+  %ul
+    %li=link_to("&laquo; #{@date-1}".html_safe, reports_path(:date => @date-1))
+    %li{:class => 'active'}
+      =link_to(@date, reports_path(:date => @date))
+    %li=link_to("#{@date+1} &raquo;".html_safe, reports_path(:date => @date+1))
 %h1
   Listing reports
-  %small=@date.presence || Report.latest_date
+  %small=@date
 
 - if @reports.empty?
   %p Not yet
