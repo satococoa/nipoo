@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :reports
+  has_many :reports, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
 
   validates :uid, :presence => true
   validates :nickname, :presence => true
