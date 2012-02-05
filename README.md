@@ -6,7 +6,7 @@
 # 動かし方
 
 1. https://github.com/account/applications からapplicationを登録して下さい。
-2. `config/application.yml.sample`を`config/application.yml`にコピーし、編集して下さい。
+2. `config/application.yml`を編集して下さい。organizationで縛る場合は`organization`にorganization名を記入して下さい。
 3. あとは普通のrailsアプリです。
 
 以下のように起動してください。

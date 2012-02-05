@@ -1,8 +1,8 @@
 defaults: &defaults
   github:
-    key: 'Your Github Client ID'
-    secret: 'Your Github Client Secret'
-    organization: 'Organization Name'
+    key: 'cb9176883591da3759fd'
+    secret: 'c19270b8e7c042c1def000d46e2ccf895c2f5a8e'
+    organization: 
 
 development:
   <<: *defaults
