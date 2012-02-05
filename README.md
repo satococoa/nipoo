@@ -1,4 +1,6 @@
-# Nipoo!について
+# Nipoo!
+
+[![Build Status](https://secure.travis-ci.org/satococoa/nipoo.png)](http://travis-ci.org/satococoa/nipoo)
 
 某弊社向けに作られたシンプルな日報ツールです。
 
