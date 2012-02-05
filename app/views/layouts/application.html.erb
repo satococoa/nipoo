@@ -20,6 +20,9 @@
           </li>
         </ul>
         <ul class="nav pull-right">
+          <li <%= "class=active" if current_page?(:my_reports) %>>
+            <%= link_to 'My Reports', :my_reports %>
+          </li>
           <% if logged_in? %>
             <li><%= link_to 'Logout', :logout %></li>
           <% else %>

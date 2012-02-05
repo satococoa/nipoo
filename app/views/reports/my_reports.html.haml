@@ -1,0 +1,8 @@
+%h1
+  Listing reports
+  %small="#{current_user.name} (#{current_user.nickname})"
+
+- if @reports.empty?
+  %p Not yet
+- else
+  = render @reports

@@ -1,6 +1,17 @@
 class ReportsController < ApplicationController
   before_filter :require_login
 
+  # GET /my_reports
+  # GET /my_reports.json
+  def my_reports
+    @reports ||= Report.user(current_user).all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @reports }
+    end
+  end
+
   # GET /reports
   # GET /reports.json
   def index

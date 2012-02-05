@@ -1,5 +1,6 @@
 Nipoo::Application.routes.draw do
   resources :reports do
+    get 'my_reports', :on => :collection, :as => :my
     resources :comments, :only => [:create, :destroy]
   end
 
