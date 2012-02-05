@@ -49,7 +49,7 @@ class ReportsController < ApplicationController
     @report = current_user.reports.new
     if params[:copy_mode].present?
       latest_report = current_user.reports.order('date DESC').limit(1).first
-      @report.body = latest_report.body
+      @report.body = latest_report.try(:body) || ''
     end
 
     respond_to do |format|
