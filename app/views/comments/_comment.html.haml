@@ -1,5 +1,5 @@
-%section
-  %h2
+= content_tag_for(:section, comment) do
+  %h3
     = image_tag(comment.user.icon, :width => 12, :height => 12)
     = comment.user.name
     %small= "(#{comment.user.nickname})"

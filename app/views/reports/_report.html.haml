@@ -1,4 +1,4 @@
-%section
+= content_tag_for(:section, report) do
   .row-fluid
     .span8
       .page-header
@@ -18,3 +18,9 @@
           = link_to 'Destroy', report, :class => 'btn', :confirm => 'Are you sure?', :method => :delete
     .span4
       = render report.comments
+      = form_for [report, report.comments.build] do |f|
+        .field
+          = f.label :comment
+          = f.text_area :body, :rows => 2, :cols => 30, :class => 'span10'
+        .actions
+          = f.submit 'Save', :class => 'btn btn-primary'
