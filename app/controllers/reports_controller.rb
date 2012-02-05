@@ -23,7 +23,7 @@ class ReportsController < ApplicationController
       end
     end
 
-    @date ||= Report.latest_date
+    @date ||= (Report.latest_date.presence || Date.today)
     @reports = Report.date(@date).all
 
     respond_to do |format|
