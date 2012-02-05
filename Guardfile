@@ -11,5 +11,6 @@ guard 'rspec', :version => 2, :cli => '--color --format NyanCatFormatter' do
   watch(%r{^spec/support/(.+)\.rb$})                  { "spec" }
   watch('config/routes.rb')                           { "spec/routing" }
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
+  watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
 end
 
