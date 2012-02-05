@@ -36,6 +36,7 @@ group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'nyan-cat-formatter'
+  gem 'capybara'
 end
 
 group :production do
