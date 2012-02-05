@@ -3,10 +3,7 @@ class Report < ActiveRecord::Base
   has_many :comments
 
   scope :date, lambda {|date| where(date: date) }
-  scope :latest, lambda {
-    # TODO: サブクエリどうやるの？
-    where(date: latest_date)
-  }
+  scope :latest, lambda { where(date: latest_date) }
 
   def self.latest_date
     maximum(:date)
