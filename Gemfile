@@ -25,6 +25,7 @@ gem 'omniauth-github'
 gem 'octokit'
 gem 'settingslogic'
 gem 'redcarpet'
+gem 'hashie'
 
 group :development, :test do
   gem 'sqlite3'

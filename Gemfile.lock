@@ -176,6 +176,7 @@ DEPENDENCIES
   guard
   guard-rspec
   haml-rails
+  hashie
   jquery-rails
   nyan-cat-formatter
   octokit
