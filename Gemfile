@@ -31,6 +31,10 @@ group :development, :test do
   gem 'tapp'
   gem 'rspec-rails'
   gem 'fabrication'
+  gem 'growl'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'nyan-cat-formatter'
 end
 
 group :production do
