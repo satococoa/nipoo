@@ -26,6 +26,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'octokit'
 gem 'settingslogic'
+gem 'redcarpet'
 
 group :development, :test do
   gem 'tapp'
