@@ -34,7 +34,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  # TODO: spec
   def whitelisted?(whitelist)
     unless whitelist.blank?
       uid_list = whitelist.split(',')

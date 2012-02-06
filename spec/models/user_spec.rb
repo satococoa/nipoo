@@ -23,4 +23,24 @@ describe User do
       it { should be_true }
     end
   end
+
+  describe '#whitelisted?' do
+    let(:user) { Fabricate :user }
+    subject { user.whitelisted?(whitelist) }
+    before do
+      Settings.github.stub(:whitelist) { whitelist }
+    end
+    context 'whitelistが空の時' do
+      let(:whitelist) { nil }
+      it { should be_false }
+    end
+    context 'whitelistにuidが入っていないとき' do
+      let(:whitelist) { 'xxxxxx' }
+      it { should be_false }
+    end
+    context 'whitelistにuidが含まれるとき' do
+      let(:whitelist) { "xxxxxx,#{user.uid}" }
+      it { should be_true }
+    end
+  end
 end
