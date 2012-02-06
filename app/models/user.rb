@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
 
   def whitelisted?(whitelist)
     unless whitelist.blank?
-      uid_list = whitelist.to_s.split(',')
+      uid_list = whitelist.to_s.split(':')
       return true if uid_list.include?(uid)
     end
     false

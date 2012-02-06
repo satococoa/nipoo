@@ -39,7 +39,7 @@ describe User do
       it { should be_false }
     end
     context 'whitelistにuidが含まれるとき' do
-      let(:whitelist) { "xxxxxx,#{user.uid}" }
+      let(:whitelist) { "xxxxxx:#{user.uid}" }
       it { should be_true }
     end
   end
