@@ -49,7 +49,7 @@ RSpec.configure do |config|
         }
       },
       :credentials => {
-        :toen => user.token
+        :token => user.token
       }
     })
     visit '/login'
