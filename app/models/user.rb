@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
       nil
     end
   end
+
   def member?(org)
     return true if org.blank?
     begin
@@ -31,5 +32,14 @@ class User < ActiveRecord::Base
       Rails.logger.error "#{e.class}: #{e.message}"
       false
     end
+  end
+
+  # TODO: spec
+  def whitelisted?(whitelist)
+    unless whitelist.blank?
+      uid_list = whitelist.split(',')
+      return true if uid_list.include?(uid)
+    end
+    false
   end
 end

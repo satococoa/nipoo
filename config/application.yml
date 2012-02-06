@@ -3,6 +3,7 @@ defaults: &defaults
     key: 'cb9176883591da3759fd'
     secret: 'c19270b8e7c042c1def000d46e2ccf895c2f5a8e'
     organization: 
+    whitelist:
 
 development:
   <<: *defaults
@@ -16,3 +17,4 @@ production:
     key: <%= ENV['GITHUB_KEY'] %>
     secret: <%= ENV['GITHUB_SECRET'] %>
     organization: <%= ENV['GITHUB_ORG'] %>
+    whitelist: <%= ENV['GITHUB_WHITELIST'] %>

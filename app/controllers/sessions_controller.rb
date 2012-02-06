@@ -3,7 +3,9 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_or_create_by_auth_hash(auth_hash)
-    if user.present? && user.member?(Settings.github.organization)
+    if user.present? &&
+      (user.member?(Settings.github.organization) ||
+       user.whitelisted?(Settings.github.whitelist))
       session[:user_id] = user.id
       redirect_to :root, :notice => 'Logged in!'
     else
