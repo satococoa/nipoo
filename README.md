@@ -9,7 +9,8 @@
 
 1. https://github.com/account/applications からapplicationを登録して下さい。
 2. `config/application.yml`を編集して下さい。organizationで縛る場合は`organization`にorganization名を記入して下さい。
-organizationに事情があって追加できない人がいる場合は、その人のuidを`whitelist`に登録して下さい。（:区切りで複数名指定できます。）
+organizationに事情があって追加できない人がいる場合は、その人のuidを`whitelist`に登録して下さい。
+（":"区切りで複数名指定できます。）
 3. あとは普通のrailsアプリです。
 
 以下のように起動してください。
