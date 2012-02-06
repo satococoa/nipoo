@@ -9,14 +9,19 @@ class User < ActiveRecord::Base
   validates :token, :presence => true
   
   def self.find_or_create_by_auth_hash(auth)
-    user = User.find_or_create_by_uid(auth['uid'].to_s)
-    user.update_attributes(
-      nickname: auth['info']['nickname'],
-      name: auth['info']['name'],
-      icon: auth['extra']['raw_info']['avatar_url'],
-      token: auth['credentials']['token']
-    )
-    user
+    begin
+      user = User.find_or_create_by_uid(auth['uid'].to_s)
+      user.update_attributes!(
+        nickname: auth['info']['nickname'],
+        name: auth['info']['name'].presence || auth['info']['nickname'],
+        icon: auth['extra']['raw_info']['avatar_url'],
+        token: auth['credentials']['token']
+      )
+      user
+    rescue => e
+      Rails.logger.error [e.class, e.message].join(' ')
+      nil
+    end
   end
   def member?(org)
     return true if org.blank?
