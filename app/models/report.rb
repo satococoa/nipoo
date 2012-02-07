@@ -7,7 +7,7 @@ class Report < ActiveRecord::Base
   validates :user_id, :presence => true
 
   scope :date, lambda {|date| where(date: date) }
-  scope :user, lambda {|user| where(user_id: user) }
+  scope :user, lambda {|user| where(user_id: user).order('date DESC') }
 
   def self.latest_date
     maximum(:date)
