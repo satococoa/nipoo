@@ -10,7 +10,7 @@
     
       .field
         = f.label :date
-        = f.date_select :date
+        = f.date_select :date, {}, :class => 'span4'
       .field
         = f.label :body
         = f.text_area :body, :rows => 30, :cols => 30, :class => 'span12'
@@ -20,7 +20,7 @@
   .span6
     %section
       .page-header
-        %h1 preview
+        %h1 Preview
       #preview
         %p ぷれーすほるだー：日報を入力するとここにプレビューが表示されるよ
     %hr
