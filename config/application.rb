@@ -69,7 +69,7 @@ module Nipoo
       g.fixture_replacement :fabrication
     end
      
-    config.middleware.insert_before ActionDispatch::Cookies, Rack::FiberPool
-    config.threadsafe!
+    # config.middleware.insert_before ActionDispatch::Cookies, Rack::FiberPool
+    # config.threadsafe!
   end
 end
