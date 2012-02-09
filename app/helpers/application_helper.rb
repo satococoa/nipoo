@@ -1,7 +1,7 @@
 # coding: utf-8
 module ApplicationHelper
   def markdown(text)
-    text
+    simple_format(text)
     # begin
       # options = {
         # :autolink => true,
