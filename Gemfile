@@ -26,7 +26,6 @@ gem 'octokit'
 gem 'settingslogic'
 gem 'redcarpet'
 gem 'hashie'
-gem 'rack-fiber_pool', :require => 'rack/fiber_pool'
 gem 'thin'
 
 group :development, :test do
