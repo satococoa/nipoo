@@ -26,6 +26,8 @@ gem 'octokit'
 gem 'settingslogic'
 gem 'redcarpet'
 gem 'hashie'
+gem 'rack-fiber_pool', :require => 'rack/fiber_pool'
+gem 'thin'
 
 group :development, :test do
   gem 'sqlite3'
@@ -41,7 +43,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'thin'
 end
 
 # To use ActiveModel has_secure_password
