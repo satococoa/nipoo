@@ -3,11 +3,13 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(document).ready ->
 
-  preview = ->
-    mkd = markdown.toHTML $('#report_body').val()
-    $('#preview').html mkd
+  if $('#report_body').length > 0
 
-  $('#report_body').keyup -> preview()
+    preview = ->
+      mkd = markdown.toHTML $('#report_body').val()
+      $('#preview').html mkd
 
-  preview() if $('#report_body').val().length > 0
+    $('#report_body').keyup -> preview()
+
+    preview() if $('#report_body').val().length > 0
 
