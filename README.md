@@ -2,7 +2,24 @@
 
 [![Build Status](https://secure.travis-ci.org/satococoa/nipoo.png)](http://travis-ci.org/satococoa/nipoo)
 
-某弊社向けに作られたシンプルな日報ツールです。
+githubと連携するシンプルな日報ツールです。
+
+
+# 機能
+
+- github認証です。
+- 所属organizationでログインできるユーザーを制限できます。
+  - whitelist機能を使用すれば当該organizationに所属していないユーザーでも使えます。
+- コメントをつけることができます。
+- 最新の日付の日報が初期表示されます。
+  - 退勤前に日報を書くようにしている場合、誰かが帰るまでは前日の日報が初期表示、誰かが帰った後は当日の日報が初期表示です。
+
+
+## 近い将来に搭載予定
+
+- githubから自分のcloseしたissueやcommitの情報を参照する。
+- コメントや日報の新着通知。
+- コメントや日報への「いいね！」機能。
 
 
 # 動かし方
