@@ -1,27 +1,26 @@
 .row-fluid
   %section
-    .row-fluid
-      %section.span12
-        .page-header
-          %h1 Nipoo!とは
-        %p シンプルな日報ツールです。弊社の社内ツールとしてゆるく開発されています。
+    %section.row-fluid
+      .page-header
+        %h1 Nipoo!とは
+      %p シンプルな日報ツールです。弊社の社内ツールとしてゆるく開発されています。
 
-      %section.span12
-        %dl
-          %dt リポジトリ
-          %dd
-            %a{:href => 'https://github.com/satococoa/nipoo'} satococoa/nipoo
-          %dt issues (バグ報告やご要望はこちらへお気軽に)
-          %dd
-            %a{:href => 'https://github.com/satococoa/nipoo/issues'} satococoa/nipoo/issues
-        
-        %p 社外の方でもお気軽にpull requestどうぞ！
-        
-        - if logged_in?
-          %p= "Hello, #{current_user.name}!!"
-        - else
-          %p
-            =link_to(:login, :class => 'btn') do
-              %i.icon-user
-              Login
-        
+    %section.row-fluid
+      %dl
+        %dt リポジトリ
+        %dd
+          %a{:href => 'https://github.com/satococoa/nipoo'} satococoa/nipoo
+        %dt issues (バグ報告やご要望はこちらへお気軽に)
+        %dd
+          %a{:href => 'https://github.com/satococoa/nipoo/issues'} satococoa/nipoo/issues
+      
+      %p 社外の方でもお気軽にpull requestどうぞ！
+      
+      - if logged_in?
+        %p= "Hello, #{current_user.name}!!"
+      - else
+        %p
+          =link_to(:login, :class => 'btn') do
+            %i.icon-user
+            Login
+      
