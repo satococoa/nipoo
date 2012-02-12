@@ -1,4 +1,5 @@
 defaults: &defaults
+  secret_token: 'a55543fdeb1dbbfe26343d23b58716d9bd19e655769e0aa2ba35ef8e0988250fe3221ca3c45ae68cb34f40bbc7fb3774ca037fabf38139aeca2a0bfc99c335a5'
   github:
     key: 'cb9176883591da3759fd'
     secret: 'c19270b8e7c042c1def000d46e2ccf895c2f5a8e'
@@ -13,6 +14,7 @@ test:
 
 production:
   <<: *defaults
+  secret_token: <%= ENV['SECRET_TOKEN'] %>
   github:
     key: <%= ENV['GITHUB_KEY'] %>
     secret: <%= ENV['GITHUB_SECRET'] %>
